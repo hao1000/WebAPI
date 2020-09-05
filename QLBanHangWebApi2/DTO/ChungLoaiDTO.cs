@@ -14,7 +14,8 @@ namespace QLBanHangWebApi2.DTO
 
         [Display(Name = "Ma So")]
         [Required(ErrorMessage = "{0} khong duoc trong")]
-        [MaxLength(10, ErrorMessage ="{(0) Phai duoi 10 ky tu}")]
+        [MaxLength(10, ErrorMessage = "{0} Phai duoi 10 ky tu")]
+        //[MaxLength(2, ErrorMessage = "The property {0} doesn't have more than {1} elements")]
         public string MaSo { get; set; }
 
         [Display(Name = "Ten")]
