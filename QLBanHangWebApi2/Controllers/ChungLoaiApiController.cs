@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using QLBanHangWebApi2.Models;
+using QLBanHangWebApi2.DAL;
 
 namespace QLBanHangWebApi2.Controllers
 {

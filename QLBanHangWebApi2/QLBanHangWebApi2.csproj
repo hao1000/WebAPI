@@ -207,37 +207,41 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChungLoaiApiController.cs" />
+    <Compile Include="Controllers\ChungLoaiApi_EmptyController.cs" />
+    <Compile Include="Controllers\HangHoaApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DTO\ChungLoaiDTO.cs" />
+    <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ChungLoai.cs">
+    <Compile Include="DAL\ChungLoai.cs">
       <DependentUpon>QLBanHang4api.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HangHoa.cs">
+    <Compile Include="DAL\HangHoa.cs">
       <DependentUpon>QLBanHang4api.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HoaDon.cs">
+    <Compile Include="DAL\HoaDon.cs">
       <DependentUpon>QLBanHang4api.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HoaDonChiTiet.cs">
+    <Compile Include="DAL\HoaDonChiTiet.cs">
       <DependentUpon>QLBanHang4api.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\QLBanHang4api.Context.cs">
+    <Compile Include="DAL\QLBanHang4api.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanHang4api.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLBanHang4api.cs">
+    <Compile Include="DAL\QLBanHang4api.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanHang4api.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLBanHang4api.Designer.cs">
+    <Compile Include="DAL\QLBanHang4api.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanHang4api.edmx</DependentUpon>
@@ -261,16 +265,157 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\QLBanHang4api.Context.tt">
+    <Content Include="DAL\QLBanHang4api.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLBanHang4api.edmx</DependentUpon>
       <LastGenOutput>QLBanHang4api.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLBanHang4api.tt">
+    <Content Include="DAL\QLBanHang4api.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLBanHang4api.edmx</DependentUpon>
       <LastGenOutput>QLBanHang4api.cs</LastGenOutput>
     </Content>
+    <Content Include="Photos\40-1..png" />
+    <Content Include="Photos\40-1.png" />
+    <Content Include="Photos\40-2..png" />
+    <Content Include="Photos\40-2.png" />
+    <Content Include="Photos\68-1.jpg" />
+    <Content Include="Photos\69-1.jpg" />
+    <Content Include="Photos\70-1.jpg" />
+    <Content Include="Photos\71-1.jpg" />
+    <Content Include="Photos\72-1.jpg" />
+    <Content Include="Photos\73-1.jpg" />
+    <Content Include="Photos\74-1.jpg" />
+    <Content Include="Photos\74-2.jpg" />
+    <Content Include="Photos\74-3.jpg" />
+    <Content Include="Photos\75-1.jpg" />
+    <Content Include="Photos\75-2.jpg" />
+    <Content Include="Photos\75-3.jpg" />
+    <Content Include="Photos\76-1.jpg" />
+    <Content Include="Photos\77-1.jpg" />
+    <Content Include="Photos\77-2.jpg" />
+    <Content Include="Photos\78-1.jpg" />
+    <Content Include="Photos\78-2.jpg" />
+    <Content Include="Photos\79-1.jpg" />
+    <Content Include="Photos\79-2.jpg" />
+    <Content Include="Photos\80-1.jpg" />
+    <Content Include="Photos\80-2.jpg" />
+    <Content Include="Photos\81-1.jpg" />
+    <Content Include="Photos\81-2.jpg" />
+    <Content Include="Photos\81-3.jpg" />
+    <Content Include="Photos\82-1.jpg" />
+    <Content Include="Photos\82-2.jpg" />
+    <Content Include="Photos\82-3.jpg" />
+    <Content Include="Photos\85-1.jpg" />
+    <Content Include="Photos\85-2.jpg" />
+    <Content Include="Photos\85-3.jpg" />
+    <Content Include="Photos\86-1.jpg" />
+    <Content Include="Photos\86-2.jpg" />
+    <Content Include="Photos\86-3.jpg" />
+    <Content Include="Photos\90-1.png" />
+    <Content Include="Photos\91-1.png" />
+    <Content Include="Photos\92-1.png" />
+    <Content Include="Photos\93-1.png" />
+    <Content Include="Photos\asus-9116-098631-1-zoom.jpg" />
+    <Content Include="Photos\asus-9118-098631-2-zoom.jpg" />
+    <Content Include="Photos\canon-2050-309213-1-zoom.jpg" />
+    <Content Include="Photos\canon-4843-618413-1-zoom.jpg" />
+    <Content Include="Photos\dell-7270-242341-1-zoom.jpg" />
+    <Content Include="Photos\dell-7271-242341-2-zoom.jpg" />
+    <Content Include="Photos\dell-7273-242341-3-zoom.jpg" />
+    <Content Include="Photos\DSC-WX200-1.jpg" />
+    <Content Include="Photos\DSC-WX200-2.jpg" />
+    <Content Include="Photos\DSC-WX200-4.jpg" />
+    <Content Include="Photos\gz-e10-2.jpg" />
+    <Content Include="Photos\gz-e10-3.jpg" />
+    <Content Include="Photos\gz-e10.jpg" />
+    <Content Include="Photos\lenovo-9007-317202-2-zoom.jpg" />
+    <Content Include="Photos\lenovo-9594-317202-3-zoom.jpg" />
+    <Content Include="Photos\MA-_ANH-SONY-DSC-W690-SC-E32-1.jpg" />
+    <Content Include="Photos\MA-_ANH-SONY-DSC-W690-SC-E32-2.jpg" />
+    <Content Include="Photos\MA-_ANH-SONY-DSC-W690-SC-E32-3.jpg" />
+    <Content Include="Photos\MA-_ANH-SONY-DSC-W690-SC-E32-5.jpg" />
+    <Content Include="Photos\MAY-ANH-Canon-EOS-600D-hinh1.jpg" />
+    <Content Include="Photos\MAY-ANH-Canon-EOS-600D-hinh2 %281%29.jpg" />
+    <Content Include="Photos\MAY-ANH-Canon-EOS-600D-hinh2.jpg" />
+    <Content Include="Photos\MAY-ANH-CANON-IXUS-135-hinh1.png" />
+    <Content Include="Photos\MAY-ANH-CANON-IXUS-135-hinh2.png" />
+    <Content Include="Photos\MAY-ANH-CANON-IXUS-135-hinh3.png" />
+    <Content Include="Photos\MAY-ANH-CANON-IXUS-135.png" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-RED-hinh1.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-RED-hinh3.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-RED-hinh4.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-RED.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-SILVER-hinh1.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-SILVER-hinh3.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-SILVER-hinh4.jpg" />
+    <Content Include="Photos\MAY-ANH-NIKON-COOLPIX-S5200-SILVER.jpg" />
+    <Content Include="Photos\May-Anh-NIKON-D5300.png" />
+    <Content Include="Photos\MAY-ANH-PANASONIC-DMC-SZ3GA-K-DEN-hinh2.jpg" />
+    <Content Include="Photos\MAY-ANH-PANASONIC-DMC-SZ3GA-K-DEN-hinh3.jpg" />
+    <Content Include="Photos\MAY-ANH-PANASONIC-DMC-SZ3GA-K-DEN.jpg" />
+    <Content Include="Photos\MAY-ANH-SAMSUNG-GALAXY-CAMERA-15.jpg" />
+    <Content Include="Photos\MAY-ANH-SAMSUNG-GALAXY-CAMERA-16.jpg" />
+    <Content Include="Photos\MAY-ANH-SAMSUNG-GALAXY-CAMERA-17.jpg" />
+    <Content Include="Photos\MAY-ANH-SAMSUNG-GALAXY-CAMERA-21.jpg" />
+    <Content Include="Photos\MAY-ANH-SAMSUNG-GALAXY-CAMERA-24.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-DSC-WX300-TCE32-1.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-DSC-WX300-TCE32-2.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RL-BQ-AP2-1.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RL-BQ-AP2-2.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RL-BQ-AP2-3.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RL-BQ-AP2-4.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RL-BQ-AP2-5.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RY-BQ-AP2-1.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RY-BQ-AP2-1135572961250cecacc73a47.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RY-BQ-AP2-2.jpg" />
+    <Content Include="Photos\MAY-ANH-SONY-NEX-5RY-BQ-AP2-3.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-2.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-3.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-4.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-5.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-7.jpg" />
+    <Content Include="Photos\MAY-QUAY-PHIM-GZ-E205-9.jpg" />
+    <Content Include="Photos\may-quay-phim-sony-hdr-cx240e-1.jpg" />
+    <Content Include="Photos\may-quay-phim-sony-hdr-cx240e-2.jpg" />
+    <Content Include="Photos\may-quay-phim-sony-hdr-cx240e.jpg" />
+    <Content Include="Photos\may-quay-phim-sony-hdr-PJ240E-1%281%29.jpg" />
+    <Content Include="Photos\may-quayphim-samsung-HMX-Q130BP-anh113212544574ec0be39ba90c%281%29%281%29.jpg" />
+    <Content Include="Photos\máy-quayphim-JVC-GZ-MS150-anh4%281%29.jpg" />
+    <Content Include="Photos\NIKON-COOLPIX-P600.png" />
+    <Content Include="Photos\noImage.jpg" />
+    <Content Include="Photos\panasonic-6581-108713-1-product.jpg" />
+    <Content Include="Photos\panasonic-6617-918713-1-product.jpg" />
+    <Content Include="Photos\panasonic-7588-296343-1-product.jpg" />
+    <Content Include="Photos\panasonic-den-product.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB350FBDWVN-Trang-3.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB350FBDWVN-Trang-6.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB350FBDWVN-Trang-7.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB35FZBDBVNEC-DEN-6.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB35FZBDBVNEC-DEN-7.jpg" />
+    <Content Include="Photos\SAMSUNG-EC-WB35FZBDBVNEC-DEN.jpg" />
+    <Content Include="Photos\SAMSUNG-EV-NX30ZZBGBVN-Den-1.jpg" />
+    <Content Include="Photos\SAMSUNG-EV-NX30ZZBGBVN-Den-2.jpg" />
+    <Content Include="Photos\SAMSUNG-EV-NX30ZZBGBVN-Den-3.jpg" />
+    <Content Include="Photos\SAMSUNG-EV-NX30ZZBGBVN-Den-4.jpg" />
+    <Content Include="Photos\SAMSUNG-EV-NX30ZZBGBVN-Den.jpg" />
+    <Content Include="Photos\sony-3588-683902-1-product.jpg" />
+    <Content Include="Photos\sony-7155-751762-1-product.jpg" />
+    <Content Include="Photos\sony-7211-061762-1-product.jpg" />
+    <Content Include="Photos\SONY-DSC-H300-E32-1.jpg" />
+    <Content Include="Photos\SONY-DSC-H300-E32-2.jpg" />
+    <Content Include="Photos\SONY-DSC-H300-E32-3.jpg" />
+    <Content Include="Photos\SONY-DSC-WX80-1.jpg" />
+    <Content Include="Photos\SONY-DSC-WX80-2.png" />
+    <Content Include="Photos\SONY-DSC-WX80-3.jpg" />
+    <Content Include="Photos\sony-ericsson-4844-718413-1-zoom.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32 %281%29.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32 %282%29.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32-1.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32-2.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32-3.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200BC_E32.jpg" />
+    <Content Include="Photos\SONY_DSC-WX200PC_E32.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -292,11 +437,11 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\QLBanHang4api.edmx">
+    <EntityDeploy Include="DAL\QLBanHang4api.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLBanHang4api.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QLBanHang4api.edmx.diagram">
+    <Content Include="DAL\QLBanHang4api.edmx.diagram">
       <DependentUpon>QLBanHang4api.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -327,7 +472,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
