@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBanHangWebAPI2DALStoreContainer" CdmEntityContainer="QLBanHangDbContext">
+    <EntitySetMapping Name="ChungLoais">
+      <EntityTypeMapping TypeName="QLBanHangWebAPI2.DAL.ChungLoai">
+        <MappingFragment StoreEntitySet="ChungLoai">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSo" ColumnName="MaSo" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangHoas">
+      <EntityTypeMapping TypeName="QLBanHangWebAPI2.DAL.HangHoa">
+        <MappingFragment StoreEntitySet="HangHoa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSo" ColumnName="MaSo" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="ThongSoKyThuat" ColumnName="ThongSoKyThuat" />
+          <ScalarProperty Name="TenHinh" ColumnName="TenHinh" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="ChungLoaiID" ColumnName="ChungLoaiID" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="QLBanHangWebAPI2.DAL.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDon">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NgayDatHang" ColumnName="NgayDatHang" />
+          <ScalarProperty Name="HoTenKhach" ColumnName="HoTenKhach" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonChiTiets">
+      <EntityTypeMapping TypeName="QLBanHangWebAPI2.DAL.HoaDonChiTiet">
+        <MappingFragment StoreEntitySet="HoaDonChiTiet">
+          <ScalarProperty Name="HoaDonID" ColumnName="HoaDonID" />
+          <ScalarProperty Name="HangHoaID" ColumnName="HangHoaID" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

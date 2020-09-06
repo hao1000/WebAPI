@@ -117,4 +117,45 @@ namespace QLBanHangWebApi2.DTO
         }
     }
 
+    // Cach viet binh thuong
+    public class HangHoaOutPut1
+    {
+        public int ID { get; set; }
+        public string MaSo { get; set; }
+        public string Ten { get; set; }
+        public string DonViTinh { get; set; }
+        public string MoTa { get; set; }
+        public string ThongSoKyThuat { get; set; }
+        public string TenHinh { get; set; }
+        public int GiaBan { get; set; }
+        public Nullable<int> ChungLoaiID { get; set; }
+        public System.DateTime NgayTao {private get; set; }
+        public System.DateTime NgayCapNhat {private get; set; }
+
+        public string strNgayTao => NgayTao.ToString("dd-MM-yyyy");
+        public string strNgaCapNhat => NgayCapNhat.ToString("dd-MM-yyyy");
+
+        public ChungLoaiDTO ChungLoai { get; set; }
+        public List<string> HinhURLs
+        {
+            get
+            {
+                string Authority = HttpContext.Current.Request.Url.Authority;
+                string ApplicationPath = HttpContext.Current.Request.ApplicationPath;
+                if (ApplicationPath.Length > 1) ApplicationPath += "/";
+                List<string> urls = new List<string>();
+                if (!string.IsNullOrEmpty(TenHinh))
+                {
+                    var arrTenHinh = TenHinh.Split(',');
+                    foreach (var tenHinh in arrTenHinh)
+                    {
+                        urls.Add($"http://{Authority}{ApplicationPath}Photos/{tenHinh}");
+                    }
+                }
+                else
+                    urls.Add($"http://{Authority}{ApplicationPath}Photos/noImage.jpg");
+                return urls;
+            }
+        }
+    }
 }

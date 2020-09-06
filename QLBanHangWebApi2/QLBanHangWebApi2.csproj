@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTO\ChungLoaiDTO.cs" />
     <Compile Include="DTO\HangHoaDTO.cs" />
+    <Compile Include="DTO\PagedDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBanHangWebAPI2.DAL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChungLoai">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="ThongSoKyThuat" Type="nvarchar(max)" />
+    <Property Name="TenHinh" Type="nvarchar(max)" />
+    <Property Name="GiaBan" Type="int" Nullable="false" />
+    <Property Name="ChungLoaiID" Type="int" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
+    <Property Name="NgayCapNhat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayDatHang" Type="datetime" Nullable="false" />
+    <Property Name="HoTenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TongTien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoaDonChiTiet">
+    <Key>
+      <PropertyRef Name="HoaDonID" />
+      <PropertyRef Name="HangHoaID" />
+    </Key>
+    <Property Name="HoaDonID" Type="int" Nullable="false" />
+    <Property Name="HangHoaID" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="DonGia" Type="int" Nullable="false" />
+    <Property Name="ThanhTien" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_HangHoa_ChungLoai">
+    <End Role="ChungLoai" Type="Self.ChungLoai" Multiplicity="0..1" />
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChungLoai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HangHoa">
+        <PropertyRef Name="ChungLoaiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDonChiTiet_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="HoaDonChiTiet" Type="Self.HoaDonChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HoaDonChiTiet">
+        <PropertyRef Name="HangHoaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDonChiTiet_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="HoaDonChiTiet" Type="Self.HoaDonChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HoaDonChiTiet">
+        <PropertyRef Name="HoaDonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBanHangWebAPI2DALStoreContainer">
+    <EntitySet Name="ChungLoai" EntityType="Self.ChungLoai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HangHoa" EntityType="Self.HangHoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDonChiTiet" EntityType="Self.HoaDonChiTiet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HangHoa_ChungLoai" Association="Self.FK_HangHoa_ChungLoai">
+      <End Role="ChungLoai" EntitySet="ChungLoai" />
+      <End Role="HangHoa" EntitySet="HangHoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDonChiTiet_HangHoa" Association="Self.FK_HoaDonChiTiet_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoa" />
+      <End Role="HoaDonChiTiet" EntitySet="HoaDonChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDonChiTiet_HoaDon" Association="Self.FK_HoaDonChiTiet_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="HoaDonChiTiet" EntitySet="HoaDonChiTiet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
