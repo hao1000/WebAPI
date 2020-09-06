@@ -220,7 +220,8 @@ namespace QLBanHangWebApi2.Controllers
             try
             {
                 if (!ModelState.IsValid) return BadRequest(ModelState);
-                int d1 = await db.HangHoas.CountAsync(p => p.MaSo == input.MaSo);
+               //int d1 = await db.HangHoas.CountAsync(p => p.MaSo == input.MaSo);
+                int d1 = await db.HangHoas.CountAsync(p => p.MaSo.StartsWith(input.MaSo));
                 if (d1> 0) return BadRequest($"Ma so = '{input.MaSo}' da ton tai");
                 bool ktFK = await db.ChungLoais.AnyAsync(p => p.ID == input.ChungLoaiID);
                 if (!ktFK) return BadRequest($"Chung loai ID  = '{input.ChungLoaiID}' khong to tai");
