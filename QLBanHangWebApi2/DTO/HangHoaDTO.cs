@@ -42,13 +42,13 @@ namespace QLBanHangWebApi2.DTO
         [RegularExpression(@"\d*", ErrorMessage = "{0} phải là số nguyên")]
         public int ChungLoaiID { get; set; }
 
-        [Display(Name = "Ngày tạo")]
-        [Required(ErrorMessage = "{0} không được để trống.")]
-        public DateTime NgayTao { get; set; }
+        //[Display(Name = "Ngày tạo")]
+        //[Required(ErrorMessage = "{0} không được để trống.")]
+        //public DateTime NgayTao { get; set; }
 
-        [Display(Name = "Ngày cập nhật")]
-        [Required(ErrorMessage = "{0} không được để trống.")]
-        public DateTime NgayCapNhat { get; set; }
+        //[Display(Name = "Ngày cập nhật")]
+        //[Required(ErrorMessage = "{0} không được để trống.")]
+        //public DateTime NgayCapNhat { get; set; }
 
     }
     public class HangHoaOutput
